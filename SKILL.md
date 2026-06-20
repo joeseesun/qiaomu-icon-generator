@@ -32,7 +32,7 @@ Use the **Codex bitmap reference method** when the user explicitly asks for Code
 4. 如果当前机器有 QM Icon Studio CLI，调用：
 
 ```bash
-node /Users/joe/Documents/qm-icon-studio/cli/qm-icon-options.mjs \
+node "$HOME/Documents/qm-icon-studio/cli/qm-icon-options.mjs" \
   --name "Product Name" \
   --query "rocket" \
   --count 8 \
@@ -50,7 +50,7 @@ node /Users/joe/Documents/qm-icon-studio/cli/qm-icon-options.mjs \
 Read `references/codex-bitmap-reference-method.md` before using this path.
 
 1. 读取项目上下文：产品名、用途、域名、现有 favicon/app icon、主色、品牌调性、目标平台。
-2. 如果用户要参考 Icon Museum，优先使用可用的本机参考库。Joe 的默认路径是 `/Users/joe/Documents/图片参考生成icon/icon-museum/manifest.json` 和 `icons/`；其他机器可使用用户提供的 manifest / 图片目录。按品类、颜色、用途筛出 6 到 12 个参考方向，但不要复制原图、商标、应用名或独特构图。
+2. 如果用户要参考 Icon Museum，优先使用可用的本机参考库。Joe 的默认路径是 `$HOME/Documents/图片参考生成icon/icon-museum/manifest.json` 和 `icons/`；其他机器可使用用户提供的 manifest / 图片目录。按品类、颜色、用途筛出 6 到 12 个参考方向，但不要复制原图、商标、应用名或独特构图。
 3. 在项目内创建候选目录，默认 `design/<product-slug>-icon-options/`，包含 `prompts.md`、`choices.md`、候选 PNG、选择稿和导出尺寸。
 4. 使用 Codex 内置 `image_gen`，每个候选单独一次生成。Prompt 必须包含：square app icon, opaque background, no text/letters/numbers/watermark, centered bold symbol, readable at 32px, iOS and web favicon use.
 5. 将内置生图输出从 `$CODEX_HOME/generated_images/...` 复制到候选目录，命名为 `option-01.png` 至 `option-10.png`。保留原始生成文件，不删除。

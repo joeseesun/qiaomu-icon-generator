@@ -4,6 +4,10 @@
 > Generate comparable app-icon directions, let the user choose, then export real Web and iOS icon assets.
 
 <p align="center">
+  <img src="docs/assets/examples/qiaomu-icon-generator/selected/qiaomu-icon-generator-logo.png" alt="qiaomu icon generator logo lockup" width="900" />
+</p>
+
+<p align="center">
   <a href="https://github.com/joeseesun/qiaomu-icon-generator/stargazers"><img alt="Stars" src="https://img.shields.io/github/stars/joeseesun/qiaomu-icon-generator?style=for-the-badge&logo=github" /></a>
   <a href="https://github.com/joeseesun/qiaomu-icon-generator/network/members"><img alt="Forks" src="https://img.shields.io/github/forks/joeseesun/qiaomu-icon-generator?style=for-the-badge&logo=github" /></a>
   <a href="https://github.com/joeseesun/qiaomu-icon-generator/issues"><img alt="Issues" src="https://img.shields.io/github/issues/joeseesun/qiaomu-icon-generator?style=for-the-badge&logo=github" /></a>
@@ -18,6 +22,16 @@ npx skills add joeseesun/qiaomu-icon-generator
 ```
 
 **已验证:** `npx skills add joeseesun/qiaomu-icon-generator --list` 可发现，真实临时目录安装可落盘 `SKILL.md`。
+
+## 真实示例输出
+
+这次补充了一轮仓库自身的 icon / logo 测试：用 Codex 内置生图生成 7 个候选，做 contact sheet 和 180 / 64 / 32px 可读性检查，最后选择 `option-05` 作为当前公开示例。
+
+| 最佳 icon | 候选测试 | 小尺寸测试 |
+|---|---|---|
+| <img src="docs/assets/examples/qiaomu-icon-generator/selected/qiaomu-icon-generator-icon-1024.png" alt="selected qiaomu-icon-generator icon" width="180" /> | <img src="docs/assets/examples/qiaomu-icon-generator/tests/icon-candidates.png" alt="qiaomu-icon-generator icon candidates" width="360" /> | <img src="docs/assets/examples/qiaomu-icon-generator/tests/favicon-readability.png" alt="favicon readability test" width="260" /> |
+
+选择理由：`option-05` 把“多个候选输入 -> 汇流 -> 选中的最终 icon”画成一个清晰符号，比纯星形或纯选择框更能解释这个 skill；同时 32px 下仍能辨认左侧候选格和右侧金色主图标。详细记录见 [`selection-notes.md`](docs/assets/examples/qiaomu-icon-generator/tests/selection-notes.md)。
 
 ## 为什么值得用
 
@@ -55,7 +69,7 @@ test -f ~/.agents/skills/qiaomu-icon-generator/SKILL.md
 - [ ] 已安装 Node.js 和 `npx`，用于安装 skill。
 - [ ] 若使用 Codex 内置生图，需要在支持 `image_gen` 的 Codex 环境中运行。
 - [ ] 若要导出 Web/iOS PNG 尺寸，需要 Python 3 和 Pillow：`python3 -m pip install pillow`。
-- [ ] 若使用 QM Icon Studio CLI，需要本机有对应 CLI。Joe 本机默认路径是 `/Users/joe/Documents/qm-icon-studio/cli/qm-icon-options.mjs`。
+- [ ] 若使用 QM Icon Studio CLI，需要本机有对应 CLI。Joe 本机默认路径是 `$HOME/Documents/qm-icon-studio/cli/qm-icon-options.mjs`。
 - [ ] 若要参考 Icon Museum，需要本地参考库或用户提供的图标目录；参考图只用于风格启发，不能复制商标和独特构图。
 
 ## 你可以这样说
@@ -175,6 +189,12 @@ It supports two paths:
 
 - QM Icon Studio CLI for clean vector-friendly SVG/PNG candidates.
 - Codex bitmap reference method for richer iOS-style raster icons using local reference galleries and built-in image generation.
+
+Example output from this repository:
+
+| Selected icon | Logo lockup |
+|---|---|
+| <img src="docs/assets/examples/qiaomu-icon-generator/selected/qiaomu-icon-generator-icon-1024.png" alt="selected qiaomu-icon-generator icon" width="180" /> | <img src="docs/assets/examples/qiaomu-icon-generator/selected/qiaomu-icon-generator-logo.png" alt="qiaomu icon generator logo lockup" width="420" /> |
 
 Typical flow:
 
