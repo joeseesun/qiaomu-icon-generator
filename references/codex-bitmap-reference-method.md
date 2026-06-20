@@ -6,16 +6,16 @@ Use this method when the user wants richer raster app-icon candidates generated 
 
 This method can use any local icon reference library that has image files and metadata. On Joe's machine, the Icon Museum snapshot usually lives at:
 
-- `/Users/joe/Documents/图片参考生成icon/icon-museum/manifest.json`
-- `/Users/joe/Documents/图片参考生成icon/icon-museum/icons/`
-- `/Users/joe/Documents/图片参考生成icon/icon-museum/index.html`
+- `$HOME/Documents/图片参考生成icon/icon-museum/manifest.json`
+- `$HOME/Documents/图片参考生成icon/icon-museum/icons/`
+- `$HOME/Documents/图片参考生成icon/icon-museum/index.html`
 
 If those paths are unavailable, ask the user for a local reference directory or continue from product context without reference images. Use available metadata to search by app name, category, palette, and filename. Treat icons as style references only. Do not copy exact artwork, app marks, names, or distinctive compositions.
 
 Useful queries:
 
 ```bash
-jq -r '.icons[] | select((.category_names|join(" ")|test("Music|Entertainment";"i")) or (.app_name|test("music|audio|song|sound|dj|album|cassette|playlist|piano|radio|vinyl";"i"))) | [.index,.app_name,(.category_names|join("; ")),.filename,(.palette|join(" "))] | @tsv' /Users/joe/Documents/图片参考生成icon/icon-museum/manifest.json
+jq -r '.icons[] | select((.category_names|join(" ")|test("Music|Entertainment";"i")) or (.app_name|test("music|audio|song|sound|dj|album|cassette|playlist|piano|radio|vinyl";"i"))) | [.index,.app_name,(.category_names|join("; ")),.filename,(.palette|join(" "))] | @tsv' "$HOME/Documents/图片参考生成icon/icon-museum/manifest.json"
 ```
 
 ## Prompt Contract
@@ -100,7 +100,7 @@ For iOS, update the existing `.appiconset` files named by `Contents.json` instea
 
 The Qiaomu Music run used this method:
 
-- Candidate directory: `/Users/joe/Documents/图片参考生成icon/design/qiaomu-music-icon-options/`
+- Candidate directory: `~/Documents/图片参考生成icon/design/qiaomu-music-icon-options/`
 - Selected candidate: `option-05`, an abstract amber disc that evolves the existing black/gold favicon.
 - Final web files: `public/icons/qiaomu-music-icon-32.png`, `64.png`, `180.png`, `192.png`, `512.png`, `1024.png`
 - Final iOS files: existing `AppIcon.appiconset/AppIcon-*.png`
