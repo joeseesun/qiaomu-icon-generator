@@ -32,6 +32,12 @@ The CLI produces:
 
 If Playwright is available and `--png` is used, it can also produce `option-*.png` and `contact-sheet.png`. If PNG rendering is skipped, that is not a failure; show the SVG contact sheet directly and continue.
 
+Geometry contract:
+
+- `option-*.svg` must remain strict square source files, normally `1024 x 1024` with `viewBox="0 0 1024 1024"`.
+- Rounded corners belong to preview masks only, such as `contact-sheet.svg` or README screenshots.
+- Do not show a square SVG on top of an unmasked rounded frame, because it creates clipped-looking corner arcs that are neither square nor proper app-icon rounding.
+
 ## Public Example
 
 The Qiaomu Music SVG CLI example in this repository lives at:
@@ -49,4 +55,5 @@ Use this example to explain the CLI path in public docs: it is a quick vector ca
 - Prefer SVG CLI when the product needs a simple favicon, toolbar icon, extension icon, or editable design starting point.
 - Prefer Codex bitmap reference generation when the product needs a polished iOS-style app icon or richer material direction.
 - Even with SVG candidates, check 64px and 32px readability before recommending a winner.
+- Reject SVG previews whose tiles are not exact squares or whose rounded corners are only partial frame artifacts.
 - Do not overwrite production icons before the user selects a candidate.

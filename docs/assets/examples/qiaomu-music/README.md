@@ -26,4 +26,4 @@ node "$HOME/Documents/qm-icon-studio/cli/qm-icon-options.mjs" \
   --offline
 ```
 
-The CLI outputs editable SVG files and `contact-sheet.svg`. PNG previews in this folder are documentation previews rendered from those SVGs.
+The CLI outputs editable SVG files and `contact-sheet.svg`. `option-*.svg` files are square source assets; rounded corners in the PNG previews are only documentation masks used to compare app-icon geometry. PNG previews in this folder are documentation previews rendered from those SVGs.

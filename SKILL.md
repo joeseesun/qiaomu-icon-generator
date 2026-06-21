@@ -46,7 +46,8 @@ node "$HOME/Documents/qm-icon-studio/cli/qm-icon-options.mjs" \
 
 5. 把 `contact-sheet.png` 或 `contact-sheet.svg` 展示给用户，并推荐 2 到 3 个最适合项目气质的方向。
 6. 如果 `--png` 因 Playwright 不可用而跳过，继续使用 SVG 输出；不要把“没有 PNG”误判为生成失败。README 或汇报中要展示 `contact-sheet.svg`、1 到 2 个 `option-*.svg`，并说明 SVG 是可编辑源文件。
-7. 用户确认后，再把选中的 SVG/PNG 复制到目标项目，或打开 QM Icon Studio 继续导出完整平台资源包。
+7. 检查 SVG 几何：`option-*.svg` 必须是严格正方形源图；如果 contact sheet 或 README 图片展示圆角预览，必须用统一 mask 裁剪，不能出现方形源图盖住圆角框后只露出四角弧线。
+8. 用户确认后，再把选中的 SVG/PNG 复制到目标项目，或打开 QM Icon Studio 继续导出完整平台资源包。
 
 ## Workflow: Codex Bitmap Reference Method
 
@@ -78,6 +79,7 @@ python3 scripts/export_selected_icon.py \
 - 候选稿默认保留方形源图；iOS、macOS、Windows 等平台圆角和格式留到最终导出阶段处理。
 - 如果 PNG 渲染失败，继续使用 SVG 候选稿，并说明 Playwright 不可用。
 - 如果外部网络不可用，加 `--offline` 使用内置图标库继续生成候选。
+- SVG CLI 候选源文件必须是正方形；圆角只作为 contact sheet / README 的预览 mask，不要烘进源图，也不要做成半截圆角边框。
 - Codex bitmap reference method 必须避免文字、字母、数字、伪文字、水印、真实商标和对参考图的近似复制。
 - Web/iOS 最终资产必须是方形、无透明通道、中心主体有安全边距；iOS App Store master 使用 1024x1024 PNG。
 - 若要替换现有网站或 App 图标，先确认用户已选择候选编号，再导出并替换。
