@@ -26,6 +26,8 @@ Use the **Codex bitmap reference method** when the user explicitly asks for Code
 
 ## Workflow: QM Icon Studio CLI
 
+Read `references/qm-icon-studio-cli-method.md` before using this path.
+
 1. 读取项目上下文：`README.md`、`package.json`、站点域名、已有 `public/` 或 `assets/` 图标、主色 CSS 变量。
 2. 提炼一个短英文语义关键词，例如 `rocket`、`globe`、`code`、`book`、`camera`、`music`、`money`。中文需求可以直接传给 CLI；CLI 会先翻译再搜索 Iconify，必要时你也可以手动改成更准确的英文词。
 3. 在项目内创建候选目录，默认使用 `design/icon-options/`；如果项目已有设计目录，沿用现有结构。
@@ -43,7 +45,8 @@ node "$HOME/Documents/qm-icon-studio/cli/qm-icon-options.mjs" \
 如果这个本机路径不存在，用 Codex bitmap reference method，或让用户提供自己的图标生成 CLI / 图标参考库路径。
 
 5. 把 `contact-sheet.png` 或 `contact-sheet.svg` 展示给用户，并推荐 2 到 3 个最适合项目气质的方向。
-6. 用户确认后，再把选中的 SVG/PNG 复制到目标项目，或打开 QM Icon Studio 继续导出完整平台资源包。
+6. 如果 `--png` 因 Playwright 不可用而跳过，继续使用 SVG 输出；不要把“没有 PNG”误判为生成失败。README 或汇报中要展示 `contact-sheet.svg`、1 到 2 个 `option-*.svg`，并说明 SVG 是可编辑源文件。
+7. 用户确认后，再把选中的 SVG/PNG 复制到目标项目，或打开 QM Icon Studio 继续导出完整平台资源包。
 
 ## Workflow: Codex Bitmap Reference Method
 
@@ -101,3 +104,15 @@ Codex bitmap reference method 候选目录通常包含：
 - `favicon-readability-sheet.png`
 - `prompts.md`
 - `choices.md`
+
+## Public Example Assets
+
+公开 README 的主示例应优先使用真实产品案例，而不是只为仓库本身生成一个 icon。当前推荐示例是乔木音乐网：
+
+- Codex bitmap reference method: `docs/assets/examples/qiaomu-music/codex-bitmap/contact-sheet.png`
+- Selected final icon: `docs/assets/examples/qiaomu-music/codex-bitmap/selected-option-05-ios-1024.png`
+- Favicon readability: `docs/assets/examples/qiaomu-music/codex-bitmap/favicon-readability-sheet.png`
+- SVG CLI method: `docs/assets/examples/qiaomu-music/svg-cli/contact-sheet.svg`
+- SVG CLI preview: `docs/assets/examples/qiaomu-music/svg-cli/svg-cli-preview.png`
+
+When adding a new public example, include both visual proof and process notes: candidate sheet, selected asset, small-size readability test, and the command or prompt used to produce it.

@@ -98,11 +98,13 @@ For iOS, update the existing `.appiconset` files named by `Contents.json` instea
 
 ## Qiaomu Music Example
 
-The Qiaomu Music run used this method:
+The public Qiaomu Music example in this repository used this method:
 
-- Candidate directory: `~/Documents/图片参考生成icon/design/qiaomu-music-icon-options/`
+- Public example directory: `docs/assets/examples/qiaomu-music/codex-bitmap/`
+- Candidate sheet: `docs/assets/examples/qiaomu-music/codex-bitmap/contact-sheet.png`
+- Favicon readability sheet: `docs/assets/examples/qiaomu-music/codex-bitmap/favicon-readability-sheet.png`
 - Selected candidate: `option-05`, an abstract amber disc that evolves the existing black/gold favicon.
-- Final web files: `public/icons/qiaomu-music-icon-32.png`, `64.png`, `180.png`, `192.png`, `512.png`, `1024.png`
+- Final web files: `docs/assets/examples/qiaomu-music/final-web/qiaomu-music-icon-32.png`, `64.png`, `180.png`, `192.png`, `512.png`, `1024.png`
 - Final iOS files: existing `AppIcon.appiconset/AppIcon-*.png`
 
 Shortlist logic:
